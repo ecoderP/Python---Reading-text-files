@@ -4,13 +4,26 @@
 # --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
 
 def read_file_content(filename):
-    # [assignment] Add your code here 
+    # [assignment] Add your code here
+    f = open(filename, "r")
     
-    return "Hello World"
+    
+    return f.read()
+#read_file_content("story.txt")
 
 
 def count_words():
-    text = read_file_content("./story.txt")
+    text = read_file_content("story.txt")
     # [assignment] Add your code here
+    counts = dict()
+    words = text.split()
 
-    return {"as": 10, "would": 20}
+    #loop through words and return the dictionary
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+
+    return counts
+print (count_words())
